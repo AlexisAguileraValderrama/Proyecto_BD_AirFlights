@@ -4,3 +4,4 @@
 --@Descripción:     Ejecucción de los scripts relacionado para crear y montar la bd
 
 @s-01-usuarios
+@s-02-entidades
