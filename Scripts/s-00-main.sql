@@ -5,3 +5,5 @@
 
 @s-01-usuarios
 @s-02-entidades
+@s-03-tablas-temporales
+@s-04-tablas-externas

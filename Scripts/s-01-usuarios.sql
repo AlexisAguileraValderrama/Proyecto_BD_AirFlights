@@ -15,7 +15,7 @@ drop role rol_invitado;
 prompt Creacion de roles
 --Creacion de roles (son como modelos de privilegios)
 create role rol_admin;
-grant create session, create sequence, create table, create view to rol_admin;
+grant create session, create sequence, create table, create public synonym, create view to rol_admin;
 
 create role rol_invitado;
 grant create session to rol_invitado;

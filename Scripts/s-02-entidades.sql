@@ -262,7 +262,7 @@ create table pasajero_programacion(
 prompt creando tabla ubicacion_programacion
 create table ubicacion_programacion(
   ubicacion_programacion_id number(10,0) not null,
-  programacion_id           number(15,0)not null
+  programacion_id           number(15,0)not null,
   fecha                     date not null,
   latitud                   number(4,2) not null,
   longitud                  number(5,2) not null,
