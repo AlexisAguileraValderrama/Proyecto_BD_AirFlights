@@ -67,6 +67,6 @@ col fecha_nacimiento format a20
 col curp format a20
 set linesize window
 
-select * from pasajero_ext;
+--select * from pasajero_ext;
 
 

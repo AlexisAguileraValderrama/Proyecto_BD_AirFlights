@@ -39,7 +39,6 @@ create table avion(
   es_avion_comercial number(1,0)  not null,
   es_avion_carga     number(1,0)  not null,
   constraint avion_pk primary key(avion_id),
-  constraint avion_matricula_uk unique(matricula),
   constraint avion_rol_chk check(es_avion_comercial = 1 or es_avion_carga = 1)
 );
 
@@ -77,7 +76,6 @@ create table aeropuerto(
   longitud          number(5,2)  not null,
   es_convenio          number(1,0)  not null,
   constraint aeropuerto_pk primary key(aeropuerto_id),
-  constraint aeropuerto_clave_aeropuerto_uk unique(clave_aeropuerto),
   constraint aeropuerto_es_convenio_chk check(es_convenio = 1 or es_convenio = 0)
 );
 
@@ -93,9 +91,9 @@ create table status_programacion(
 prompt creando tabla Programacion
 create table programacion(
   programacion_id         number(15,0)  not null,
-  numero_vuelo            number(5,0)   not null,--verificar con el profesor si es UK o no
+  numero_programacion     number(5,0)   not null,--verificar con el profesor si es UK o no
   fecha_llegada           date          not null,
-  fecha_salida            date          null,
+  fecha_salida            date          not null,
   fecha_status            date          not null,
   sala                    numeric(3)    null,
   avion_id                numeric(10,0) not null,
@@ -157,9 +155,7 @@ create table empleado(
   constraint empleado_jefe_id_fk foreign key(jefe_id)
     references empleado(empleado_id),
   constraint empleado_puesto_id_fk foreign key(puesto_id)
-    references puesto(puesto_id),
-  constraint empleado_rfc_uk unique (rfc),
-  constraint empleado_curp_uk unique (curp)
+    references puesto(puesto_id)
 );
 
 prompt creando url_trabajos_empleado
@@ -238,8 +234,7 @@ create table pasajero(
   email            varchar2(40) null,
   fecha_nacimiento date         not null,
   curp             varchar2(18) not null,
-  constraint pasajero_pk primary key(pasajero_id),
-  constraint pasajero_curp_uk unique (curp)
+  constraint pasajero_pk primary key(pasajero_id)
 );
 
 prompt creando tabla  pasajero_programacion
