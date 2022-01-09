@@ -1,7 +1,7 @@
 --Se requiere hacer uso del usuario SYS para crear un objeto tipo
 --directory y otorgar privilegios. 
 prompt Conectando como sys
-connect sys as sysdba
+connect sys / system as sysdba
 
 --Un objeto tipo directory es un objeto que se crea y almacena en el
 -- diccionario de datos y se emplea para mapear directorios

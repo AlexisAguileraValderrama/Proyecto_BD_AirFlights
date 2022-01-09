@@ -18,19 +18,27 @@ grant select on pase_abordar                  to agpe_proy_invitado;
 
 prompt conectado a usuario invitado
 
+connect sys / system as sysdba
+
+grant create synonym to agpe_proy_invitado;
+
 connect agpe_proy_invitado / agpe
 
 prompt creacion de sinonimos privados para invitado
 
-create or replace private synonym aeropuerto for agpe_proy_admin.aeropuerto;
+create or replace synonym aeropuerto for agpe_proy_admin.aeropuerto;
 
-create or replace private synonym paquete for agpe_proy_admin.paquete;
+create or replace synonym paquete for agpe_proy_admin.paquete;
 
-create or replace private synonym  for agpe_proy_admin."{}";
+create or replace synonym pase_abordar for agpe_proy_admin.pase_abordar;
+
+connect sys / system as sysdba
+
+prompt quitando privilegio de lectura a invitado
+revoke create synonym from agpe_proy_invitado;
+
+connect agpe_proy_admin / agpe
 
 
-create or replace procedure
-
-
-
-
+prompt Ejecución del script para  anexar a las tablas formato xx_<nombre_tabla>
+@s-0701-sinonimo.sql;

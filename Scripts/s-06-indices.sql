@@ -15,10 +15,6 @@ create unique index avion_matricula_iuk on avion(matricula);
 --Indices de Programacion
 create index programacion_numero_programacion on programacion(numero_programacion);
 
-create index programacion_fecha_salida_ix on programacion(to_date(fecha_salida,'mm/yyyy'));
-
-create index programacion_fecha_llegada_ix on programacion(to_date(fecha_llegada,'mm/yyyy'));
-
 --Indices de Aeropuerto 
 create unique index aeropuerto_clave_aeropuerto_uk on aeropuerto(clave_aeropuerto);
 

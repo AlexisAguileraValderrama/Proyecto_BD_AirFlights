@@ -5,39 +5,45 @@
 
 connect agpe_proy_admin/agpe
 
-drop table ubicacion_programacion;
-drop table pasajero_programacion;
-drop table maleta;
-drop table pase_abordar;
+--drop table ubicacion_programacion;
+--drop table pasajero_programacion;
+--drop table maleta;
+--drop table pase_abordar;
 
-drop table paquete;
-drop table tipo_paquete;
+--drop table paquete;
+--drop table tipo_paquete;
 
-drop table programacion_empleado;
+--drop table programacion_empleado;
 
-drop table url_trabajos_empleado;
-drop table empleado;
-drop table puesto;
+--drop table url_trabajos_empleado;
+--drop table empleado;
+--drop table puesto;
 
-drop table historico_status_programacion;
-drop table programacion;
-drop table status_programacion;
+--drop table historico_status_programacion;
+--drop table programacion;
+--drop table status_programacion;
 
-drop table aeropuerto;
-drop table pasajero;
+--drop table aeropuerto;
+--drop table pasajero;
 
-drop table avion_carga;
-drop table avion_comercial;
-drop table avion;
+--drop table avion_carga;
+--drop table avion_comercial;
+--drop table avion;
 
 prompt creando entidad Avión
 create table avion(
   avion_id           number(10,0)  not null,
-  matricula          varchar2(10) not null,
   modelo_avion       varchar2(50) not null,
-  pdf                varchar2(50) not null,
+  pdf                blob default empty_blob() not null ,
   es_avion_comercial number(1,0)  not null,
   es_avion_carga     number(1,0)  not null,
+  matricula generated always as(
+    RPAD('MA',4,'0') || modelo_avion ||
+    to_char(es_avion_carga) ||
+    to_char(es_avion_comercial) ||
+    to_char(es_avion_carga+es_avion_carga) ||
+    to_char(avion_id)
+  ),
   constraint avion_pk primary key(avion_id),
   constraint avion_rol_chk check(es_avion_comercial = 1 or es_avion_carga = 1)
 );
@@ -53,20 +59,6 @@ create table avion_comercial(
   references avion(avion_id)
 );
 
-prompt creando tabla avion_carga
-create table avion_carga(
-  avion_id           number(10,0) not null,
-  numero_bodegas     number(2,0) not null,
-  capacidad_carga    number(5,2) not null,
-  bodega_ancho       number(2,1) not null,
-  bodega_profundidad number(2,1) not null,
-  bodega_alto        number(2,1) not null,
-  constraint avion_carga_pk primary key (avion_id),
-  constraint avion_carga_avion_id foreign key (avion_id)
-  references avion(avion_id)
-);
-
-
 prompt creando tabla Aeropuerto
 create table aeropuerto(
   aeropuerto_id     number(5,0)  not null,
@@ -77,6 +69,22 @@ create table aeropuerto(
   es_convenio          number(1,0)  not null,
   constraint aeropuerto_pk primary key(aeropuerto_id),
   constraint aeropuerto_es_convenio_chk check(es_convenio = 1 or es_convenio = 0)
+);
+
+prompt creando tabla avion_carga
+create table avion_carga(
+  avion_id           number(10,0) not null,
+  numero_bodegas     number(2,0) not null,
+  capacidad_carga    number(5,2) not null,
+  bodega_ancho       number(2,1) not null,
+  bodega_profundidad number(2,1) not null,
+  bodega_alto        number(2,1) not null,
+  aeropuerto_id      number(5,0) not null,
+  constraint avion_carga_pk primary key (avion_id),
+  constraint avion_carga_avion_id foreign key (avion_id)
+    references avion(avion_id),
+  constraint avion_carga_aeropuesto_id_fk foreign key (aeropuerto_id)
+  references aeropuerto(aeropuerto_id)
 );
 
 prompt creando tabla status_programacion
@@ -92,14 +100,15 @@ prompt creando tabla Programacion
 create table programacion(
   programacion_id         number(15,0)  not null,
   numero_programacion     number(5,0)   not null,--verificar con el profesor si es UK o no
-  fecha_llegada           date          not null,
   fecha_salida            date          not null,
+  fecha_llegada           date          not null,
   fecha_status            date          not null,
-  sala                    numeric(3)    null,
-  avion_id                numeric(10,0) not null,
-  aeropuerto_origen_id    numeric(5,0)  not null,
-  aeropuerto_destino_id   numeric(5,0)  not null,
-  status_id               numeric(1,0)  not null,
+  sala                    number(3,0)    null,
+  tipo_programacion       varchar2(2)  not null,
+  avion_id                number(10,0) not null,
+  aeropuerto_origen_id    number(5,0)  not null,
+  aeropuerto_destino_id   number(5,0)  not null,
+  status_id               number(1,0)  not null,
   constraint programacion_pk primary key (programacion_id),
   constraint programacion_avion_id_fk foreign key(avion_id)
     references avion(avion_id),
@@ -118,7 +127,7 @@ create table historico_status_programacion(
   historico_status_programacion_id number(10,0) not null,
   fecha_status                     date not null,
   status_programacion_id           number(1,0) not null,
-  programacion_id                  number(1,0) not null,
+  programacion_id                  number(10,0) not null,
   constraint historico_status_programacion_pk primary key
     (historico_status_programacion_id),
   constraint historico_status_programacion_status_programacion_id_fk 
@@ -128,13 +137,11 @@ create table historico_status_programacion(
     references programacion(programacion_id)
 );
 
-
-
 prompt creando tabla puesto
 create table puesto(
   puesto_id          number(1,0) not null,
   clave_puesto       varchar2(3) not null,
-  nombre_puesto      varchar2(15) not null,
+  nombre_puesto      varchar2(50) not null,
   descripcion_puesto varchar2(200) not null,
   sueldo             number(8,2) not null,
   constraint puesto_pk primary key(puesto_id)
@@ -148,7 +155,7 @@ create table empleado(
   ap_materno      varchar2(40) not null,
   rfc             varchar2(13) not null,
   curp            varchar2(18) not null,
-  foto            varchar2(300) not null,
+  foto            blob default empty_blob() not null,
   jefe_id         number(10,0) null,
   puesto_id       number(1,0) not null,
   constraint empleado_empleado_pk primary key(empleado_id),
@@ -199,26 +206,27 @@ create table paquete(
     references tipo_paquete(tipo_paquete_id),
   constraint paquete_programacion_id_fk foreign key(programacion_id)
     references programacion(programacion_id)
-  --constraint paquete_tipo_vuelo_chk check((select paquete_id from paquete ) = 1)--Preguntar al profe
+  --constraint paquete_tipo_programacion_chk check((select paquete_id from paquete ) = 1)--Preguntar al profe
 );
 
 prompt creando tabla pase_abordar
 create table pase_abordar(
   pase_abordar_id number(10,0) not null,
-  folio varchar2(8) not null,
-  hora_impresion date not null,
-  fecha_impresion date not null,
-  siento varchar(4) not null,
-  vuelo_id number(15,0) not null,
+  fecha_impresion date not null, 
+  asiento varchar2(4) not null,
+  programacion_id number(15,0) not null,
+  folio generated always as(
+    'FL' || to_char(fecha_impresion,'hhss') || substr(asiento,0,1) || to_char(programacion_id)
+  ),
   constraint pase_abordar_pk primary key(pase_abordar_id),
-  constraint pase_abordar_vuelo_id_fk foreign key(vuelo_id)
+  constraint pase_abordar_programacion_id_fk foreign key(programacion_id)
     references programacion(programacion_id)
 );
 
 prompt creando tabla maleta
 create table maleta(
-  maleta_id number(10,0) not null,
   pase_abordar_id number(10,0) not null,
+  maleta_id number(10,0) not null,
   peso number(5,2) not null,
   constraint maleta_pk  primary key(maleta_id, pase_abordar_id),
   constraint maleta_pase_abordar_fk foreign key(pase_abordar_id)
@@ -237,21 +245,19 @@ create table pasajero(
   constraint pasajero_pk primary key(pasajero_id)
 );
 
-prompt creando tabla  pasajero_programacion
-create table pasajero_programacion(
-  pasajero_vuelo_id  number(10,0) not null,
+prompt creando tabla  pasajero_pase_abordar
+create table pasajero_pase_abordar(
+  pasajero_pase_abordar_id  number(10,0) not null,
   especificaciones   varchar2(2000) not null,
   presente           number(1,0) not null,
   pasajero_id        number(10,0) not null,
-  programacion_id    number(15,0) not null,
-  pase_abordar_id       number(10,0) not null, 
-  constraint pasajero_programacion_pk primary key(pasajero_id),
-  constraint pasajero_programacion_pasajero_id_fk foreign key (pasajero_id)
+  pase_abordar_id    number(10,0) not null, 
+  constraint pasajero_pase_abordar_pk primary key(pasajero_pase_abordar_id),
+  constraint pasajero_pase_abordar_pasajero_id_fk foreign key (pasajero_id)
     references pasajero(pasajero_id),
-  constraint pasajero_programacion_programacion_id_fk foreign key (programacion_id)
-    references programacion(programacion_id),
-  constraint pasajero_programacion_pase_abordar_id_fk foreign key (pase_abordar_id)
-    references pase_abordar(pase_abordar_id)
+  constraint pasajero_pase_abordar_pase_abordar_id_fk foreign key (pase_abordar_id)
+    references pase_abordar(pase_abordar_id),
+  constraint pasajero_pase_abordar_id_uk unique (pase_abordar_id)
 );
 
 prompt creando tabla ubicacion_programacion

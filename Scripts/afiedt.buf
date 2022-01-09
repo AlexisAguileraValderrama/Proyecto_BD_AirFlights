@@ -1,0 +1,6 @@
+insert into pase_abordar
+  values(seq_pase_abordar_id.nextval,'LFORPEIR',
+  to_date('31/12/2021 20:00:00','dd/mm/yyyy hh24:mi:ss'),
+  'A-12',
+  2)
+/

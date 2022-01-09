@@ -10,3 +10,5 @@
 @s-05-secuencias
 @s-06-indices
 @s-07-sinonimos
+@s-08-vistas
+@s-09-carga-inicial
