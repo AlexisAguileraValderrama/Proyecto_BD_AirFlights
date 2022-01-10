@@ -215,13 +215,16 @@ create table pase_abordar(
   fecha_impresion date not null, 
   asiento varchar2(4) not null,
   programacion_id number(15,0) not null,
+  tipo_pasajero varchar2(3) not null,
   folio generated always as(
     'FL' || to_char(fecha_impresion,'hhss') || substr(asiento,0,1) || to_char(programacion_id)
   ),
   constraint pase_abordar_pk primary key(pase_abordar_id),
   constraint pase_abordar_programacion_id_fk foreign key(programacion_id)
-    references programacion(programacion_id)
+    references programacion(programacion_id),
+  constraint pase_abordar_tipo_pasajero_chk check(tipo_pasajero in ('VIP','ORD' ,'DIS'))
 );
+
 
 prompt creando tabla maleta
 create table maleta(

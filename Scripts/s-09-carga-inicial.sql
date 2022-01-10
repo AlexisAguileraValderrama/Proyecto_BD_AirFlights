@@ -442,10 +442,10 @@ aeropuerto_origen_id,aeropuerto_destino_id,status_id)
     
 prompt Realizando inserciones en Pase_abordar y Pasajero_pase_abordar
 --
-insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id)
+insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id, tipo_pasajero)
    values(seq_pase_abordar_id.nextval,
   to_date('31/12/2021 20:00:00','dd/mm/yyyy hh24:mi:ss'),
-  'R-02', 1);
+  'R-02', 1,'VIP');
 
 insert into pasajero_pase_abordar 
    values (seq_pasajero_pase_abordar_id.nextval,
@@ -454,10 +454,10 @@ insert into pasajero_pase_abordar
 --
 
 --
-insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id)
+insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id, tipo_pasajero)
    values(seq_pase_abordar_id.nextval,
   to_date('31/12/2021 20:00:00','dd/mm/yyyy hh24:mi:ss'),
-  'V-42', 2);
+  'V-42', 2,'ORD');
   
 insert into pasajero_pase_abordar 
    values(seq_pasajero_pase_abordar_id.nextval,
@@ -466,10 +466,10 @@ insert into pasajero_pase_abordar
 --
 
 --
-insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id)
+insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id, tipo_pasajero)
    values(seq_pase_abordar_id.nextval,
   to_date('31/12/2021 18:00:00','dd/mm/yyyy hh24:mi:ss'),
-  'A-21', 3);
+  'A-21', 3,'VIP');
 
 insert into pasajero_pase_abordar 
    values(seq_pasajero_pase_abordar_id.nextval,
@@ -478,10 +478,10 @@ insert into pasajero_pase_abordar
 --
 
 --
-insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id)
+insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id, tipo_pasajero)
    values(seq_pase_abordar_id.nextval,
   to_date('31/12/2021 06:00:00','dd/mm/yyyy hh24:mi:ss'),
-  'C-43', 4);
+  'C-43', 4,'ORD');
 
 insert into pasajero_pase_abordar
    values(seq_pasajero_pase_abordar_id.nextval,
@@ -490,10 +490,10 @@ insert into pasajero_pase_abordar
 --
 
 --
-insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id)
+insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id, tipo_pasajero)
    values(seq_pase_abordar_id.nextval,
   to_date('30/12/2021 21:00:00','dd/mm/yyyy hh24:mi:ss'),
-  'N-01', 5);
+  'N-01', 5,'ORD');
 
 insert into pasajero_pase_abordar
    values(seq_pasajero_pase_abordar_id.nextval,
@@ -502,10 +502,10 @@ insert into pasajero_pase_abordar
 --  
 
 --
-insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id)
+insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id, tipo_pasajero)
    values(seq_pase_abordar_id.nextval,
   to_date('31/12/2021 20:00:00','dd/mm/yyyy hh24:mi:ss'),
-  'T-12', 1);
+  'T-12', 1,'DIS');
   
 insert into pasajero_pase_abordar
    values(seq_pasajero_pase_abordar_id.nextval,
@@ -514,11 +514,11 @@ insert into pasajero_pase_abordar
 --
 
 --
-insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id)
+insert into pase_abordar (pase_abordar_id, fecha_impresion,asiento,programacion_id, tipo_pasajero)
    values(seq_pase_abordar_id.nextval,
   to_date('28/12/2021 20:00:00','dd/mm/yyyy hh24:mi:ss'),
   'F-02', 
-  1);
+  1,'DIS');
   
 insert into pasajero_pase_abordar
    values(seq_pasajero_pase_abordar_id.nextval,

@@ -1,6 +1,6 @@
 
 connect agpe_proy_admin / agpe
-
+prompt creacion de vistas
 create or replace view v_empleado_puntajes(
   nombre, ap_paterno, ap_materno, nombre_puesto,puntaje_total
 ) as select nombre, ap_paterno,ap_materno, nombre_puesto, sum(puntaje) puntaje_total
@@ -22,7 +22,7 @@ create or replace view v_pasajero(
 
 grant select on v_pasajero to agpe_proy_invitado;
 create or replace public synonym pasajero
-  for agpe_proy_admin.v_ pasajero;
+  for agpe_proy_admin.v_pasajero;
 
 
 create or replace view v_empleado(

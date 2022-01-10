@@ -11,8 +11,14 @@ begin
   select dbms_random.value(1,5) into v_tipo from dual;
   select dbms_random.value(1,99) into v_peso from dual;
 
-  insert into paquete
-    values(seq_paquete_id.nextval,
+  reporte_ausente_id   number(10,0) not null,
+  programacion_id      number(10,0) not null,
+  nombre_pasajero      number(10,0) not null,
+  email                varchar2(100) not null,
+  urgencia             number(3,0) not null,
+
+  insert into reporte_ausente
+    values(seq_reporte_ausente_id.nextval,
       v_folio,v_peso,v_tipo, 8);
  
   commit;
