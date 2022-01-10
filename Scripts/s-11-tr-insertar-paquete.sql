@@ -1,3 +1,7 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     Trigger para realizar insercion de paquete a su correspondiente avion de carga.
 connect AGPE_PROY_ADMIN / agpe
 
 create or replace trigger tr_insertar_paquete

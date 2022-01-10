@@ -35,27 +35,29 @@ after statement is
 
   v_empleado_id number(10,0);
 begin
-    v_empleado_id := empleado_list(1).empleado_id;
-    select sum(puntaje) into v_puntaje_empleado
-    from programacion_empleado
-    where empleado_id = v_empleado_id;
-
-    select jefe_id into v_jefe_id
-    from empleado where empleado_id = v_empleado_id;
-
-    if v_jefe_id is not null then
-
-      select sum(puntaje) into v_puntaje_jefe 
+    for i in empleado_list.first .. empleado_list.last loop
+      v_empleado_id := empleado_list(i).empleado_id;
+      
+      select sum(puntaje) into v_puntaje_empleado
       from programacion_empleado
-      where empleado_id = v_jefe_id; 
-    
-      if v_puntaje_empleado > v_puntaje_jefe then --llamado al procedure
-        select jefe_id into v_jefe_jefe from empleado where empleado_id = v_jefe_id;
-        update empleado set jefe_id = v_empleado_id where empleado_id = v_jefe_id;
-        update empleado set jefe_id = v_jefe_jefe where empleado_id = v_empleado_id;
-      end if;
-    end if;
+      where empleado_id = v_empleado_id;
 
+      select jefe_id into v_jefe_id
+      from empleado where empleado_id = v_empleado_id;
+
+      if v_jefe_id is not null then
+
+        select sum(puntaje) into v_puntaje_jefe 
+        from programacion_empleado
+        where empleado_id = v_jefe_id; 
+      
+        if v_puntaje_empleado > v_puntaje_jefe then --llamado al procedure
+          select jefe_id into v_jefe_jefe from empleado where empleado_id = v_jefe_id;
+          update empleado set jefe_id = v_empleado_id where empleado_id = v_jefe_id;
+          update empleado set jefe_id = v_jefe_jefe where empleado_id = v_empleado_id;
+        end if;
+      end if;
+    end loop;
 end after statement;
 end;
 /

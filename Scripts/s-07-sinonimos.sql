@@ -1,3 +1,8 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  01/01/2022
+--@Descripción:     Creacion de sinonimos
+
 connect agpe_proy_admin / agpe
 
 prompt creacion de sinonimos publicos

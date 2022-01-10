@@ -32,3 +32,15 @@ prompt creacion disparadores
 @s-11-tr-insertar-paquete.sql
 @s-11-tr-pase-ausente.sql
 @s-11-tr-cambio-jefe.sql
+
+@s-12-tr-cambio-jefe-prueba.sql
+@s-12-tr-insertar-paquete-prueba.sql
+@s-12-tr-pase-ausente-prueba.sql
+
+@s-14-p-inserta-empleado-prueba.sql
+@s-14-p-insertar-maleta-prueba.sql
+
+@s-16-fx-genera-clave-aeropuerto-prueba.sql
+@s-16-fx-PDF-prueba.sql
+
+@s-18-lob-actualiza-foto-prueba.sql
