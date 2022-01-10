@@ -16,7 +16,6 @@ begin
   end if;
 exception
   when others then
-    raise_application_error(-20001,'La prueba no fue exitosa');
   rollback;
   raise;
 end;
