@@ -1,5 +1,5 @@
 connect AGPE_PROY_ADMIN / agpe
-
+set serveroutput on
 create or replace trigger tr_pase_ausente
 after insert or update of presente on pasajero_pase_abordar
 for each row
