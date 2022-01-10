@@ -79,5 +79,10 @@ start with 1
 increment by 1
 nocycle;
 
+create sequence seq_reporte_ausente_id
+start with 1
+increment by 1
+nocycle;
+
 grant select on agpe_proy_admin.seq_itinerario_id to agpe_proy_invitado;
 

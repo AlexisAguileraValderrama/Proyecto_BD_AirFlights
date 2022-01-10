@@ -37,12 +37,12 @@ insert into puesto
 
 insert into puesto
    values (seq_puesto_id.nextval, 'COP', 'COPILOTO','Asistente del piloto',35000.00);
+
+insert into puesto
+   values (seq_puesto_id.nextval, 'SOC', 'SOBRECARGO','Encargado de atender a los pasajeros',20000.00);
   
 insert into puesto
    values (seq_puesto_id.nextval, 'JSC', 'JEFE DE SOBRECARGOS','Encargado de volar el avion',25000.00);
-
-insert into puesto
-   values (seq_puesto_id.nextval, 'SOC', 'SOBGRECARGO','Encargado de atender a los pasajeros',20000.00);
   
 insert into puesto
    values (seq_puesto_id.nextval, 'TEC', 'TÉCNICO','Encargado de dar mantenimiento al avion',30000.00);
@@ -422,6 +422,20 @@ aeropuerto_origen_id,aeropuerto_destino_id,status_id)
     'CA',
     134,
     4,
+    2,
+    1);
+
+insert into programacion (programacion_id, numero_programacion,
+fecha_salida,fecha_llegada,fecha_status,sala,tipo_programacion,avion_id,
+aeropuerto_origen_id,aeropuerto_destino_id,status_id)
+   values(seq_programacion_id.nextval,59374,
+    to_date('03/01/2022 10:00:00','dd/mm/yyyy hh24:mi:ss'),
+    to_date('03/01/2022 15:00:00','dd/mm/yyyy hh24:mi:ss'),
+    to_date('02/01/2022 06:00:00','dd/mm/yyyy hh24:mi:ss'),
+    7,
+    'CO',
+    54,
+    1,
     2,
     1);
    
@@ -1218,3 +1232,4 @@ insert into historico_status_programacion
   10
   );
 
+commit;

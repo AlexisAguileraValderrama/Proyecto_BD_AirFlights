@@ -270,5 +270,3 @@ create table ubicacion_programacion(
   constraint ubicacion_progamacion_programacion_id_pk 
     primary key(ubicacion_programacion_id,programacion_id)
 );
-
-

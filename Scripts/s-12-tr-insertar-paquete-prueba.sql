@@ -22,6 +22,7 @@ begin
 exception
   when others then
   rollback;
+  raise;
 
 end;
 /
