@@ -1,3 +1,8 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  01/01/2022
+--@Descripción:     Creacion de tabla externa
+
 --Se requiere hacer uso del usuario SYS para crear un objeto tipo
 --directory y otorgar privilegios. 
 prompt Conectando como sys

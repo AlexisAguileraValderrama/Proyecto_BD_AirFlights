@@ -1,3 +1,8 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     prueba tr-pase-ausente
+
 prompt realizando prueba para actualización
 set serveroutput on
 declare
@@ -66,7 +71,7 @@ end;
 /
 show errors
 
-
+--Cuando sale error es que los pases tienen el mismo folio
 prompt realizando prueba para insercion
 set serveroutput on
 declare

@@ -1,3 +1,8 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     función encargada de retornar un pdf tipo blob
+
 connect sys / system as sysdba
 
 create or replace directory pdf_dir as '/tmp/bases/pdf'; 

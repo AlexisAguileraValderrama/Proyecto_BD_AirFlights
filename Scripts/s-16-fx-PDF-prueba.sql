@@ -1,3 +1,8 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     prueba fx-pdf-prueba
+
 set serveroutput on
 declare
 v_blob_recibido blob;

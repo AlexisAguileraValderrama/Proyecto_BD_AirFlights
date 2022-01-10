@@ -1,3 +1,8 @@
+--@Autor:  Aguilera Valderrama Alexis Fernando, Pereda Ceballos Jorge Francisco
+--@Fecha creación: 16/12/2021
+--@Descripción: procedimiento encargado de realizar la carga de aviones con su correspondiente
+--              jerarquia
+
 create or replace procedure p_crear_avion (
 v_modelo_avion in varchar2,
 v_comercial in number ,v_avion_carga in number,

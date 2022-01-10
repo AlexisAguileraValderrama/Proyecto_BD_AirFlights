@@ -1,3 +1,8 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     procedimiento encargado de cargar las fotos de los empleados  
+
 connect sys / system as sysdba
 
 create or replace directory fotos_dir as '/tmp/bases/emp-img'; 

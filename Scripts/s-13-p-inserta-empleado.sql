@@ -1,3 +1,8 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     Procedimiento encargado de realizar la tripulación de vuelo 
+--                  para cada programación.
 
 create or replace procedure p_asignar_empleado(
 v_empleado_id in number, v_programacion in number, v_status out number

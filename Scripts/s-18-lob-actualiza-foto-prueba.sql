@@ -1,6 +1,7 @@
---@Autor:  Aguilera Valderrama Alexis Fernando, Pereda Ceballos Jorge Francisco
---@Fecha creación: 18/12/2021
---@Descripción: pruebas del ejercicio 2. Practica 13
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     prueba lob-actualiza-foto
 
 set serveroutput on
 declare

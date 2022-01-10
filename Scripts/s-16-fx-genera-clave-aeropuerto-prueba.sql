@@ -1,3 +1,8 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     prueba fx-genera-clave-aeropuerto
+
 set serveroutput on
 declare 
 v_clave_esperada varchar2 (4000) := 'DFA78FBE8CC5B';

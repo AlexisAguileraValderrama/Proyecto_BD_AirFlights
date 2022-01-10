@@ -1,3 +1,8 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     función encargada de generar clave de aeropuerto
+
 connect sys /system  as sysdba
 Grant EXECUTE  on DBMS_CRYPTO to AGPE_PROY_ADMIN;
 

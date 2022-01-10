@@ -1,3 +1,8 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     prueba  p-inserta-empleado
+
 prompt  REALIZA INSERCIÓN.EMPLEADO PARA VUELO COMERCIAL NO CUENTA CON UNA PROGRAMACIÓN ASIGNADA
 set serveroutput on
 declare

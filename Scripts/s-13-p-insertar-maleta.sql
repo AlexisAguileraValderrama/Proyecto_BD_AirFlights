@@ -1,3 +1,10 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     Procedimiento encargado de realizar la insercion de maletas a los
+--                  aviones comerciales y que el peso total de maletas no sobrepase 
+--                  el limite de maletas posibles por pasajero
+
 create or replace procedure p_insertar_maleta(
 v_pase_abordar in number, v_peso in number, v_maleta_actual out number
 ) is

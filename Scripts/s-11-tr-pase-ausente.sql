@@ -1,3 +1,9 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  09/01/2022
+--@Descripción:     Trigger encargado de realizar insercion a reporte_ausente cuando 
+--                  un pasajero no va  asistir al vuelo.
+
 connect AGPE_PROY_ADMIN / agpe
 set serveroutput on
 create or replace trigger tr_pase_ausente

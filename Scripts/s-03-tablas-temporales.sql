@@ -1,3 +1,7 @@
+--@Autor(es):       Aguilera Valderrama Alexis Fernando, 
+--                  Pereda Ceballos Jorge Francisco
+--@Fecha creación:  01/01/2022
+--@Descripción:     Creacion de tablas temporales
 connect agpe_proy_admin / agpe
 
 create global temporary table itinerario(

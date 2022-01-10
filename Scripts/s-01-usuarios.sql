@@ -1,6 +1,6 @@
 --@Autor(es):       Aguilera Valderrama Alexis Fernando, 
 --                  Pereda Ceballos Jorge Francisco
---@Fecha creación:  20/11/2021
+--@Fecha creación:  20/12/2021
 --@Descripción:     Creación de usuarios
 
 prompt Conectando como sys
