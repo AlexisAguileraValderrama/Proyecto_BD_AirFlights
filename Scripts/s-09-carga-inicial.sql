@@ -342,7 +342,7 @@ aeropuerto_origen_id,aeropuerto_destino_id,status_id)
 insert into programacion (programacion_id, numero_programacion,
 fecha_salida,fecha_llegada,fecha_status,sala,tipo_programacion,avion_id,
 aeropuerto_origen_id,aeropuerto_destino_id,status_id)
-   values(seq_programacion_id.nextval,43223,
+   values(seq_programacion_id.nextval,75456,
     to_date('01/01/2022 09:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('01/01/2022 12:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('01/01/2022 12:00:00','dd/mm/yyyy hh24:mi:ss'),
@@ -356,7 +356,7 @@ aeropuerto_origen_id,aeropuerto_destino_id,status_id)
 insert into programacion (programacion_id, numero_programacion,
 fecha_salida,fecha_llegada,fecha_status,sala,tipo_programacion,avion_id,
 aeropuerto_origen_id,aeropuerto_destino_id,status_id)
-   values(seq_programacion_id.nextval,43223,
+   values(seq_programacion_id.nextval,97567,
     to_date('01/01/2022 09:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('01/01/2022 12:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('01/01/2022 08:00:00','dd/mm/yyyy hh24:mi:ss'),
@@ -372,7 +372,7 @@ aeropuerto_origen_id,aeropuerto_destino_id,status_id)
 insert into programacion (programacion_id, numero_programacion,
 fecha_salida,fecha_llegada,fecha_status,sala,tipo_programacion,avion_id,
 aeropuerto_origen_id,aeropuerto_destino_id,status_id)
-   values(seq_programacion_id.nextval,46589,
+   values(seq_programacion_id.nextval,43234,
     to_date('02/01/2022 15:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('02/01/2022 16:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('02/01/2022 12:00:00','dd/mm/yyyy hh24:mi:ss'),
@@ -386,7 +386,7 @@ aeropuerto_origen_id,aeropuerto_destino_id,status_id)
 insert into programacion (programacion_id, numero_programacion,
 fecha_salida,fecha_llegada,fecha_status,sala,tipo_programacion,avion_id,
 aeropuerto_origen_id,aeropuerto_destino_id,status_id)
-   values(seq_programacion_id.nextval,46589,
+   values(seq_programacion_id.nextval,23453,
     to_date('02/01/2022 16:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('02/01/2022 20:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('02/01/2022 14:00:00','dd/mm/yyyy hh24:mi:ss'),
@@ -400,7 +400,7 @@ aeropuerto_origen_id,aeropuerto_destino_id,status_id)
 insert into programacion (programacion_id, numero_programacion,
 fecha_salida,fecha_llegada,fecha_status,sala,tipo_programacion,avion_id,
 aeropuerto_origen_id,aeropuerto_destino_id,status_id)
-   values(seq_programacion_id.nextval,46589,
+   values(seq_programacion_id.nextval,54344,
     to_date('02/01/2022 13:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('02/01/2022 22:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('02/01/2022 10:00:00','dd/mm/yyyy hh24:mi:ss'),
@@ -414,7 +414,7 @@ aeropuerto_origen_id,aeropuerto_destino_id,status_id)
 insert into programacion (programacion_id, numero_programacion,
 fecha_salida,fecha_llegada,fecha_status,sala,tipo_programacion,avion_id,
 aeropuerto_origen_id,aeropuerto_destino_id,status_id)
-   values(seq_programacion_id.nextval,46589,
+   values(seq_programacion_id.nextval,23456,
     to_date('02/01/2022 13:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('02/01/2022 22:00:00','dd/mm/yyyy hh24:mi:ss'),
     to_date('02/01/2022 10:00:00','dd/mm/yyyy hh24:mi:ss'),
@@ -1217,3 +1217,4 @@ insert into historico_status_programacion
   1,
   10
   );
+

@@ -1,4 +1,3 @@
---TODO: Para la pk de maleta anexar los valores con pl/SQL
 prompt conectado como admin
 connect agpe_proy_admin / agpe
 
@@ -74,3 +73,11 @@ create sequence seq_historico_status_programacion_id
 start with 1
 increment by 1
 nocycle;
+
+create sequence seq_itinerario_id
+start with 1
+increment by 1
+nocycle;
+
+grant select on agpe_proy_admin.seq_itinerario_id to agpe_proy_invitado;
+

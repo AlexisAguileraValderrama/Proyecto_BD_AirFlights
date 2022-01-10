@@ -19,7 +19,8 @@ grant create session,
   create sequence,
   create table,
   create public synonym,
-  create procedure, 
+  create trigger,
+  create procedure,
   create view to rol_admin;
 
 create role rol_invitado;
